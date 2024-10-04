@@ -1,15 +1,16 @@
 # SQLite Database Management with Python
 
-<img src="https://github.com/TonyVallad/Introduction-SQLite/blob/main/sqlite-introduction.png?raw=true" width="750"/>
+<img src="https://github.com/TonyVallad/Introduction-SQLite/blob/main/sqlite-introduction.png?raw=true" width="850"/>
 
 This project demonstrates how to create, manipulate, and export data from an SQLite database using Python. It includes the creation of two tables (`Clients` and `Commandes`), inserting fictional data, updating and deleting records, and exporting the data to CSV files.
 
 ## Project Structure
 
-- **database.db**: SQLite database file created and manipulated by the Python script.
+- **database.db**: SQLite database file created and manipulated by the Python scripts.
 - **clients.csv**: Exported CSV file containing data from the `Clients` table.
 - **commandes.csv**: Exported CSV file containing data from the `Commandes` table.
-- **script.py**: Main Python script that manages the SQLite database.
+- **exercise.py**: Python script that manages the SQLite database (creation, insertion, querying, updating, and deletion).
+- **export-to-csv.py**: Python script to export the contents of the `Clients` and `Commandes` tables into CSV files.
 
 ## Features
 
@@ -31,22 +32,24 @@ This project demonstrates how to create, manipulate, and export data from an SQL
    - Deletes a specific order from the database by order ID.
 
 6. **Data Export**:
-   - Exports the contents of the `Clients` and `Commandes` tables to two separate CSV files.
+   - Exports the contents of the `Clients` and `Commandes` tables to two separate CSV files using `export-to-csv.py`.
 
 ## Prerequisites
 
 - Python 3.x
-- SQLite3 (comes pre-installed with Python)
+- SQLite3 (downloaded from [SQLite official site](https://www.sqlite.org/download.html))
 - `csv` library (comes pre-installed with Python)
 
 ## Usage
 
+### Running the Main Script (`exercise.py`):
+
 1. Clone the repository or copy the script.
-2. Ensure Python is installed on your system.
+2. Ensure Python and SQLite3 are installed on your system.
 3. Run the script using the command:
 
     ```bash
-    python script.py
+    python exercise.py
     ```
 
 4. The script will:
@@ -55,11 +58,22 @@ This project demonstrates how to create, manipulate, and export data from an SQL
    - Display the list of clients and their orders.
    - Update the email of a client.
    - Delete an order.
-   - Export the data to `clients.csv` and `commandes.csv`.
+
+### Exporting Data to CSV (`export-to-csv.py`):
+
+1. Run the script using the command:
+
+    ```bash
+    python export-to-csv.py
+    ```
+
+2. The script will:
+   - Export the contents of the `Clients` table to `clients.csv`.
+   - Export the contents of the `Commandes` table to `commandes.csv`.
 
 ## Example Output
 
-After running the script, you should see output like:
+After running the main script, you should see output like:
 
 ```
 Tables créées avec succès.
@@ -84,4 +98,4 @@ Commande numéro 4 supprimée
 
 ## License
 
-This project is open-source and available under the MIT License.
+This project is open-source and available for modification and distribution. Please feel free to use it for educational purposes.
