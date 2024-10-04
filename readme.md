@@ -85,12 +85,3 @@ Commande numéro 4 supprimée
 ## License
 
 This project is open-source and available under the MIT License.
-```
-
-### How to use it:
-- **Project Title**: Provides an overview of what the project does.
-- **Features**: Lists the functionalities of the script.
-- **Prerequisites**: Explains the tools required to run the project.
-- **Usage**: Step-by-step instructions on how to run the script.
-- **Example Output**: Shows an example of what the user will see in the terminal when they run the script.
-- **Files Generated**: Indicates which files will be created when the script is executed.
