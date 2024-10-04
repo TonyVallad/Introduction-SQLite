@@ -1,0 +1,6 @@
+id,nom,prenom,email,date_inscription
+1,Roche,Alice,alice.roche@example.com,2024-01-15
+2,Blanc,Olivier,olivier.blanc@example.com,2024-02-10
+3,Carpentier,Marie,marie.carpentier@example.com,2024-03-05
+4,Fontaine,Lucas,lucas.fontaine@example.com,2024-04-20
+5,Garcia,Emma,emma.garcia@gmail.com,2024-05-12

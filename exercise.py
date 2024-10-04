@@ -60,7 +60,77 @@ VALUES (?, ?, ?)
 # Sauvegarder les changements
 connection.commit()
 
+print("\n\033[1;32mTables créées avec succès.\033[0m\n")
+
+# Récupération de la liste de tous les clients
+cursor.execute('SELECT * FROM Clients')
+clients = cursor.fetchall()
+
+# Affichage des clients
+print("\033[1;36mListe des clients :\033[0m")
+for client in clients:
+    print(f"ID: {client[0]}, Nom: {client[1]}, Prénom: {client[2]}, Email: {client[3]}, Date d'inscription: {client[4]}")
+print()
+
+# Récupérer les informations du client (nom, prénom) en utilisant l'id
+client_id = 5
+cursor.execute('''
+    SELECT nom, prenom FROM Clients WHERE id = ?
+''', (client_id,))
+
+client = cursor.fetchone()
+
+if client:
+    nom, prenom = client
+    print(f"Liste des commandes de \033[1;36m{nom} {prenom}\033[0m:")
+
+    # Récupérer les commandes du client en utilisant son client_id
+    cursor.execute('''
+        SELECT produit, date_commande FROM Commandes WHERE client_id = ?
+    ''', (client_id,))
+    
+    commandes = cursor.fetchall()
+
+    # Afficher les commandes du client
+    if commandes:
+        for idx, commande in enumerate(commandes, 1):
+            produit, date_commande = commande
+            print(f"- Commande {idx}: {produit}, passée le {date_commande}")
+        print()
+    else:
+        print("\033[91mAucune commande trouvée pour ce client.\033[0m\n")
+else:
+    print("\033[91mClient non trouvé.\033[0m\n")
+
+# Mettre à jour l'adresse email du client avec l'id 5
+nouvel_email = 'emma.garcia@gmail.com'
+client_id = 5
+
+cursor.execute('''
+    UPDATE Clients
+    SET email = ?
+    WHERE id = ?
+''', (nouvel_email, client_id))
+
+# Sauvegarder les changements
+connection.commit()
+
+# Vérifier si la mise à jour a bien été effectuée
+cursor.execute('SELECT nom, prenom, email FROM Clients WHERE id = ?', (client_id,))
+client = cursor.fetchone()
+print(f"Client \033[1;36m{client[1]} {client[0]}\033[0m a maintenant l'email : \033[1;36m{client[2]}\033[0m\n")
+
+# Suppression de la commande avec l'id 4
+commande_id = 4
+cursor.execute('''
+    DELETE FROM Commandes
+    WHERE id = ?
+''', (commande_id,))
+
+# Sauvegarder les changements
+connection.commit()
+
+print(f"Commande numéro \033[1;36m{commande_id}\033[0m supprimée\n")
+
 # Fermer la connexion
 connection.close()
-
-print("\n\033[1;32mTables créées avec succès.\033[0m\n")
