@@ -37,7 +37,7 @@ This project demonstrates how to create, manipulate, and export data from an SQL
 ## Prerequisites
 
 - Python 3.x
-- SQLite3 (downloaded from [SQLite official site](https://www.sqlite.org/download.html))
+- SQLite3 (downloaded from [SQLite official site](https://www.sqlite.org/download.html), make sure to add folder containing .exe files to PATHS)
 - `csv` library (comes pre-installed with Python)
 
 ## Usage
